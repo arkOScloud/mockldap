@@ -224,7 +224,7 @@ class LDAPObject(RecordableMethods):
             scheme, raw = match.groups()
 
             if crypt is not None and scheme == 'CRYPT':
-                matches = (crypt(password, raw[:4]) == raw)
+                matches = (crypt(password, raw) == raw)
             elif scheme == 'SSHA':
                 decoded = base64.b64decode(raw)
                 h = hashlib.sha1(password.encode('utf-8'))
