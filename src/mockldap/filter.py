@@ -137,7 +137,7 @@ class Test(Token):
         elif self.value == u'*':
             matches = len(values) > 0
         else:
-            matches = self.value in values
+            matches = self.value in values or self.value.encode() in values
 
         return matches
 

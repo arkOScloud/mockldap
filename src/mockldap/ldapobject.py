@@ -218,7 +218,7 @@ class LDAPObject(RecordableMethods):
         add more if you need them.
 
         """
-        match = self.PASSWORD_RE.match(value)
+        match = self.PASSWORD_RE.match(value.decode())
 
         if match is not None:
             scheme, raw = match.groups()
